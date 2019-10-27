@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IntentApp_Pitsik</string>
+    <string name="call">Call</string>
+    <string name="viewMap">View Map</string>
+    <string name="viewPages">View Web Pages</string>
+    <string name="sendMail">Send Mail</string>
+</resources>
