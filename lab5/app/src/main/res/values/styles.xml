@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="ActionBar" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorControlNormal">@color/md_white_1000</item>
+        <item name="android:textColorPrimary">@color/md_white_1000</item>
+
+        <item name="android:textColorSecondaryInverse">@color/md_white_1000</item>
+        <item name="android:textColorHighlight">@color/md_white_1000</item>
+        <item name="android:textColorHighlightInverse">@color/md_white_1000</item>
+        <item name="android:textColorHint">@color/md_white_1000</item>
+        <item name="android:textColorLink">@color/md_white_1000</item>
+        <item name="android:textColorTertiary">@color/md_white_1000</item>
+        <item name="android:colorFocusedHighlight">@color/md_white_1000</item>
+        <item name="android:colorControlHighlight">@color/md_white_1000</item>
+        <item name="itemIconTint">@color/md_white_1000</item>
+</style>
+</resources>
