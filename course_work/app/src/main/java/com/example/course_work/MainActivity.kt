@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.example.course_work.fragments.AboutMeFragment
+import com.example.course_work.fragments.*
+import com.example.course_work.pojo.ContactList
 import com.mikepenz.google_material_typeface_library.GoogleMaterial
+import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
@@ -26,14 +28,15 @@ class MainActivity : AppCompatActivity() {
 
         val accountHeader = AccountHeaderBuilder().withActivity(this)
             .addProfiles(
-                ProfileDrawerItem().withName("Пицик Юлия").withEmail("pitsikj@gmail.com")
+                ProfileDrawerItem().withName("Пицик Юлия").withEmail("pitsikj@gmail.com").withIcon(R.drawable.duck)
             )
             .build()
-        val aboutMe = PrimaryDrawerItem().withName("Обо мне").withIcon(GoogleMaterial.Icon.gmd_person_pin)
-        val myStudy = PrimaryDrawerItem().withName("Моя учеба/работа").withIcon(GoogleMaterial.Icon.gmd_business_center)
-        val myDegreeWork = PrimaryDrawerItem().withName("Моя дипломная работа").withIcon(GoogleMaterial.Icon.gmd_description)
-        val myPlans = PrimaryDrawerItem().withName("Мои планы").withIcon(GoogleMaterial.Icon.gmd_watch_later)
-        val contacts = PrimaryDrawerItem().withName("Контакты").withIcon(GoogleMaterial.Icon.gmd_mail)
+
+        val aboutMe = PrimaryDrawerItem().withName("Обо мне").withIcon(FontAwesome.Icon.faw_user_circle1)
+        val myStudy = PrimaryDrawerItem().withName("Моя учеба/работа").withIcon(FontAwesome.Icon.faw_graduation_cap)
+        val myDegreeWork = PrimaryDrawerItem().withName("Моя дипломная работа").withIcon(FontAwesome.Icon.faw_book)
+        val myPlans = PrimaryDrawerItem().withName("Мои планы").withIcon(FontAwesome.Icon.faw_chart_line)
+        val contacts = PrimaryDrawerItem().withName("Контакты").withIcon(FontAwesome.Icon.faw_paper_plane1)
         lateinit var drawer: Drawer
 
 
@@ -59,11 +62,10 @@ class MainActivity : AppCompatActivity() {
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     val fragment: Fragment = when (position) {
-                        /*
-                        3, 4, 5 -> FirstPlaylist.newInstance()
-                        7 -> AboutFragment.newInstance()
-
-                         */
+                        3 -> MyStudyFragment.newInstance()
+                        4 -> MyDegreeWorkFragment.newInstance()
+                        5 -> MyPlansFragment.newInstance()
+                        7 -> ContactsFragment.newInstance()
                         else -> AboutMeFragment.newInstance()
                     }
 

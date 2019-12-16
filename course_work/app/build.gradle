@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.mikepenz:materialdrawer-nav:7.0.0-rc08'
     implementation "com.mikepenz:iconics-core:4.0.2"
     implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'com.mikepenz:google-material-typeface:3.0.1.4.original-kotlin@aar'
+    implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
     implementation 'com.mikepenz:community-material-typeface:3.5.95.1-kotlin@aar'
+    implementation 'com.mikepenz:fontawesome-typeface:5.9.0.0-kotlin@aar'
 }
