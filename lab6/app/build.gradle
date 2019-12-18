@@ -15,11 +15,22 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        def youtubeApiKey = properties.getProperty("api_key", "")
+        it.buildConfigField 'String', "YOUTUBE_API_KEY", youtubeApiKey
+        it.resValue 'string', "api_key", youtubeApiKey
     }
 }
 repositories {

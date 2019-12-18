@@ -5,18 +5,23 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.example.lab6.fragments.AboutFragment
-import com.example.lab6.fragments.FirstPlaylist
-import com.example.lab6.fragments.HomeFragment
+import com.example.lab6.fragments.*
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var drawer: Drawer
+    private val home = PrimaryDrawerItem().withName("Home")
+    private val firstPlaylist = PrimaryDrawerItem().withName("Playlist #1")
+    private val secondPlaylist = PrimaryDrawerItem().withName("Playlist #2")
+    private val thirdPlaylist = PrimaryDrawerItem().withName("Playlist #3")
+    private val about = PrimaryDrawerItem().withName("About")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +35,6 @@ class MainActivity : AppCompatActivity() {
                 ProfileDrawerItem().withName("Pitsik Julia").withEmail("pitsikj@gmail.com")
             )
             .build()
-        val home = PrimaryDrawerItem().withName("Home")
-        val firstPlaylist = PrimaryDrawerItem().withName("Playlist #1")
-        val secondPlaylist = PrimaryDrawerItem().withName("Playlist #2")
-        val thirdPlaylist = PrimaryDrawerItem().withName("Playlist #3")
-        val about = PrimaryDrawerItem().withName("About")
-        lateinit var drawer: Drawer
-
 
         drawer = DrawerBuilder()
             .withActivity(this)
@@ -61,7 +59,9 @@ class MainActivity : AppCompatActivity() {
                 ): Boolean {
                     val fragment: Fragment
                     when (position) {
-                        3, 4, 5 -> fragment = FirstPlaylist.newInstance()
+                        3 -> fragment = FirstPlaylist.newInstance()
+                        4 -> fragment = SecondPlaylist.newInstance()
+                        5 -> fragment = ThirdPlaylist.newInstance()
                         7 -> fragment = AboutFragment.newInstance()
                         else -> fragment = HomeFragment.newInstance()
                     }
@@ -75,11 +75,20 @@ class MainActivity : AppCompatActivity() {
                 }
             })
             .build()
+        selectItem()
 
-        val homeFragment = HomeFragment.newInstance()
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.activity_main_frame, homeFragment)
-            .commit()
     }
+
+    private fun selectItem() {
+        when (supportFragmentManager.findFragmentById(R.id.activity_main_frame)) {
+            is HomeFragment -> drawer.setSelection(home)
+            is FirstPlaylist -> drawer.setSelection(firstPlaylist)
+            is SecondPlaylist -> drawer.setSelection(secondPlaylist)
+            is ThirdPlaylist -> drawer.setSelection(thirdPlaylist)
+            is AboutFragment -> drawer.setSelection(about)
+            else -> drawer.setSelection(home)
+        }
+    }
+
+
 }

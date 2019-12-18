@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.lab6.R
 
@@ -28,7 +29,7 @@ class AboutFragment : Fragment() {
         )
         val textView = view.findViewById<TextView>(R.id.about_text)
         textView.setText("About")
-//        (activity as AppCompatActivity).supportActionBar!!.setTitle("Home")
+        (activity as AppCompatActivity).supportActionBar!!.setTitle("About")
         return view
     }
 }

@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/item_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:focusable="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_height="270dp">
+
+        <com.google.android.youtube.player.YouTubeThumbnailView
+            android:id="@+id/youtube_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
 
         <RelativeLayout
             android:id="@+id/youtube_frame_layout"
             android:layout_width="match_parent"
-            android:layout_height="190dp">
+            android:layout_height="190dp"
+            android:visibility="visible">
 
-            <com.google.android.youtube.player.YouTubeThumbnailView
-                android:id="@+id/youtube_thumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible" />
 
-            <FrameLayout
-                android:id="@+id/youtube_holder"
+            <ImageView
+                android:id="@+id/btn_youtube_player"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@mipmap/ic_youtube_play_button"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -33,8 +46,9 @@
             android:id="@+id/video_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/youtube_thumbnail"
             android:gravity="center"
             android:textSize="20sp" />
-    </LinearLayout>
 
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

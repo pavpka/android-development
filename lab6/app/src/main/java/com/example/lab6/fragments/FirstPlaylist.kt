@@ -34,7 +34,8 @@ class FirstPlaylist : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(activity, 1)
         recyclerView.layoutManager = layoutManager
-        val adapter = RecyclerViewAdapter(YoutubeVideo.initFirstPlaylist())
+        val adapter =
+            RecyclerViewAdapter(activity as AppCompatActivity, YoutubeVideo.initFirstPlaylist())
         recyclerView.adapter = adapter
 
         (activity as AppCompatActivity).supportActionBar!!.setTitle("Playlist #1")
