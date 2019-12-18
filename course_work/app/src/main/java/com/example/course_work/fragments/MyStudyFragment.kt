@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.course_work.R
 import com.example.course_work.adapters.RVAdapterStudy
-import com.example.course_work.pojo.StudyList
+import com.example.course_work.data.StudyList
 
 class MyStudyFragment : Fragment() {
     companion object {

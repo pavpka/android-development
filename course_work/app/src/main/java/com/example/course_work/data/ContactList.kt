@@ -1,4 +1,4 @@
-package com.example.course_work.pojo
+package com.example.course_work.data
 
 import com.example.course_work.R
 
@@ -9,29 +9,29 @@ data class ContactList(val srcIcon: Int, val name: String, val description: Stri
             val cards = arrayListOf<ContactList>()
             cards.add(
                 ContactList(
-                    R.drawable.phone,
-                    "Номер телефона",
-                    "123456789"
+                    R.drawable.mail,
+                    "Почта",
+                    "pitsikj@gmail.com"
                 )
             )
             cards.add(
                 ContactList(
                     R.drawable.telegram,
-                    "Телеграм",
+                    "Telegram",
                     "@juliaapav"
                 )
             )
             cards.add(
                 ContactList(
-                    R.drawable.vk,
-                    "Вконтакте",
-                    "@juliaapav"
+                    R.drawable.github,
+                    "GitHub",
+                    "@pavpka"
                 )
             )
             cards.add(
                 ContactList(
                     R.drawable.instagram,
-                    "Инстаграм",
+                    "Instagram",
                     "@juiaapav"
                 )
             )

@@ -27,7 +27,7 @@ class AboutMeFragment : Fragment() {
             R.layout.about_me_fragment, container, false
         )
         val textView = view.findViewById<TextView>(R.id.about_text)
-        textView.setText("хаю хай!!!")
+        textView.setText(R.string.aboutMe)
         (activity as AppCompatActivity).supportActionBar!!.setTitle("Обо мне")
         return view
     }

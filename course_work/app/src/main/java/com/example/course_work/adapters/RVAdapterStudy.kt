@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.course_work.R
-import com.example.course_work.pojo.StudyList
+import com.example.course_work.data.StudyList
 
 class RVAdapterStudy(val studyCards: List<StudyList>) :
     RecyclerView.Adapter<RVAdapterStudy.CardViewHolder>() {

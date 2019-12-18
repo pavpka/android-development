@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:orientation="vertical"
-    app:cardCornerRadius="2dp"
+    app:cardBackgroundColor="#B3FFFFFF"
+    app:cardCornerRadius="20dp"
     app:cardElevation="6dp">
 
     <LinearLayout
@@ -33,7 +34,9 @@
                 android:id="@+id/contact_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="1dp" />
+                android:layout_marginStart="10dp"
+                android:padding="1dp"
+                android:textColor="#242424" />
 
 
         </LinearLayout>
@@ -44,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:paddingStart="15dp"
-            android:paddingEnd="5dp" />
+            android:paddingEnd="5dp"
+            android:textColor="#9C9C9C" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

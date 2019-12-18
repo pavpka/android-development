@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.course_work.R
 import com.example.course_work.adapters.RVAdapterContacts
-import com.example.course_work.pojo.ContactList
+import com.example.course_work.data.ContactList
 
 class ContactsFragment : Fragment() {
     companion object {
@@ -39,13 +39,15 @@ class ContactsFragment : Fragment() {
         recyclerView.adapter = adapter
         adapter.clickListener = { contactList ->
             when (contactList.name) {
-                "Номер телефона" -> openApp(
-                    Intent(
-                        Intent.ACTION_DIAL,
-                        Uri.parse("tel: ${contactList.description}")
+                "Почта" -> {
+                    val mail = Intent(
+                        Intent.ACTION_SENDTO,
+                        Uri.parse("mailto:")
                     )
-                )
-                "Телеграм" -> {
+                    mail.putExtra(Intent.EXTRA_EMAIL, arrayOf(contactList.description))
+                    openApp(mail)
+                }
+                "Telegram" -> {
                     val telegram = Intent(
                         Intent.ACTION_VIEW,
                         Uri.parse("https://telegram.me/juliaapav")
@@ -54,7 +56,7 @@ class ContactsFragment : Fragment() {
                     openApp(telegram)
                 }
 
-                "Инстаграм" -> {
+                "Instagram" -> {
                     val instagram = Intent(
                         Intent.ACTION_VIEW,
                         Uri.parse("https://instagram.com/juliaapav")
@@ -62,10 +64,10 @@ class ContactsFragment : Fragment() {
                     instagram.setPackage("com.instagram.android")
                     openApp(instagram)
                 }
-                "Вконтакте" -> openApp(
+                "GitHub" -> openApp(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://vk.com/juliaapav")
+                        Uri.parse("https://github.com/pavpka")
                     )
                 )
 

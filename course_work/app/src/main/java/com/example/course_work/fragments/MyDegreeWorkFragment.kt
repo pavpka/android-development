@@ -27,7 +27,7 @@ class MyDegreeWorkFragment : Fragment() {
             R.layout.degree_fragment, container, false
         )
         val textView = view.findViewById<TextView>(R.id.degree_text)
-        textView.setText("хаю хай!!!")
+        textView.setText(R.string.degree_work)
         (activity as AppCompatActivity).supportActionBar!!.setTitle("Моя дипломная работа")
         return view
     }
